@@ -1,0 +1,52 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/binaryCalculator.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="res"></div>
+    <div id="btns">
+      <button id="btn0">0</button>
+      <button id="btn1">1</button>
+      <button id="btnClr">C</button>
+      <button id="btnEql">=</button>
+      <button id="btnSum">+</button>
+      <button id="btnSub">-</button>
+      <button id="btnMul">*</button>
+      <button id="btnDiv">/</button>
+    </div>
+
+    <script>
+      let display = "";
+      // Adding to display string
+      function action(e) {
+        const btn = e.target || e.srcElement;
+        display = display + document.getElementById(btn.id).innerHTML;
+        document.getElementById("res").innerHTML = display;
+      }
+
+      // Calculate result, display result, and change display back to ""
+      function result() {
+        const resultArray = display.split(" ");
+        let result;
+        for (let i = 0; i < resultArray.length; i++) {
+          result = eval(result + resultArray[i]);
+        }
+        document.getElementById("res").innerHTML = result;
+        display = "";
+        console.log("Result should show");
+      }
+
+      document.getElementById("btn0").onclick = action;
+      document.getElementById("btn1").onclick = action;
+      document.getElementById("btnSum").onclick = action;
+      document.getElementById("btnSub").onclick = action;
+      document.getElementById("btnMul").onclick = action;
+      document.getElementById("btnDiv").onclick = action;
+
+      document.getElementById("btnEql").addEventListener("click", result());
+    </script>
+  </body>
+</html>
