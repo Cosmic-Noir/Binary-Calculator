@@ -27,18 +27,6 @@
         document.getElementById("res").innerHTML = display;
       }
 
-      // Calculate result, display result, and change display back to ""
-      function result() {
-        const resultArray = display.split(" ");
-        let result;
-        for (let i = 0; i < resultArray.length; i++) {
-          result = eval(result + resultArray[i]);
-        }
-        document.getElementById("res").innerHTML = result;
-        display = "";
-        console.log("Result should show");
-      }
-
       document.getElementById("btn0").onclick = action;
       document.getElementById("btn1").onclick = action;
       document.getElementById("btnSum").onclick = action;
@@ -46,7 +34,18 @@
       document.getElementById("btnMul").onclick = action;
       document.getElementById("btnDiv").onclick = action;
 
-      document.getElementById("btnEql").addEventListener("click", result());
+      // Calculate and display result
+      let result = document.getElementById("btnEql");
+      result.addEventListener("click", function() {
+        console.log("calcResults pressed");
+      });
+
+      // Clear the input
+      document.getElementById("btnClr").addEventListener("click", function() {
+        display = "";
+        document.getElementById("res").innerHTML = display;
+        console.log("clearDisplay pressed");
+      });
     </script>
   </body>
 </html>
