@@ -37,6 +37,10 @@
       // Calculate and display result
       let result = document.getElementById("btnEql");
       result.addEventListener("click", function() {
+        let num = parseInt(display, 2);
+        console.log(num);
+        document.getElementById("res").innerHTML = num;
+
         console.log("calcResults pressed");
       });
 
